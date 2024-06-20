@@ -19,5 +19,5 @@ moveButton.addEventListener("mouseover", function () {
 });
 
 correctlyButton.addEventListener("click", function () {
-  alert("Resposta correta! Vamo comer um hamburgão");
+  alert("Resposta correta! Vamos comer um hamburgão");
 });
