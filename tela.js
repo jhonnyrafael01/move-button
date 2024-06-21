@@ -25,5 +25,5 @@ moveButton.addEventListener("mouseover", qualquerNome);
 moveButton.addEventListener("click", qualquerNome);
 
 correctlyButton.addEventListener("click", function () {
-  alert("Resposta correta! Vamo comer um empadão");
+  alert("Resposta correta! Vamo comer um Hamurgão");
 });
