@@ -11,7 +11,7 @@ function qualquerNome() {
 
 function calcularPosicao(tipo) {
   var min = 4; 
-  var max = 50;
+  var max = 40;
   var position;
 
   do {
