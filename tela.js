@@ -1,29 +1,34 @@
-var moveButton = document.querySelector("button:nth-child(2)");
-var correctlyButton = document.querySelector("button:first-child");
+const moveButton = document.querySelector(".btn-no");
+const correctlyButton = document.querySelector(".btn-yes");
 
-function qualquerNome() {
-  var vertical = calcularPosicao("vertical");
-  var horizontal = calcularPosicao("horizontal");
-  moveButton.style.position = "absolute";
-  moveButton.style.left = vertical + "vw";
-  moveButton.style.top = horizontal + "vh";
-}
+function moverBotao() {
+  const buttonWidth = moveButton.offsetWidth;
+  const buttonHeight = moveButton.offsetHeight;
+  const simButton = correctlyButton.getBoundingClientRect();
+  const windowWidth = window.innerWidth;
+  const windowHeight = window.innerHeight;
 
-function calcularPosicao(tipo) {
-  var min = 4; 
-  var max = 45;
-  var position;
+  let top, left;
 
   do {
-    position = Math.floor(Math.random() * (max - min + 1)) + min;
-  } while (tipo === "vertical" && position >= 20 && position <= 60);
+    left = Math.floor(Math.random() * (windowWidth - buttonWidth));
+    top = Math.floor(Math.random() * (windowHeight - buttonHeight));
+  } while (
+    // Garante que não fique por cima do botão "Sim"
+    left < simButton.right &&
+    left + buttonWidth > simButton.left &&
+    top < simButton.bottom &&
+    top + buttonHeight > simButton.top
+  );
 
-  return position;
+  moveButton.style.position = "absolute";
+  moveButton.style.left = `${left}px`;
+  moveButton.style.top = `${top}px`;
 }
 
-moveButton.addEventListener("mouseover", qualquerNome);
-moveButton.addEventListener("click", qualquerNome);
+moveButton.addEventListener("mouseover", moverBotao);
+moveButton.addEventListener("click", moverBotao);
 
 correctlyButton.addEventListener("click", function () {
-  window.location.href = "resposta.html";
+  alert("Resposta correta! Vamo comer um Hamburgão");
 });
