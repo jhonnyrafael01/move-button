@@ -1,13 +1,17 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    font-family: "Roboto", sans-serif;
-    position: relative; /* Isso é importante para o botão se mover dentro da tela */
-    overflow: hidden;    /* Evita scrolls quando o botão "Não" estiver nas bordas */
+.btn-no {
+  transition: left 0.05s linear, top 0.05s linear;
+  position: absolute;
 }
+
+body {
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-family: "Roboto", sans-serif;
+}
+
 
 .container {
     text-align: center;
