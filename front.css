@@ -2,9 +2,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* altura total da tela */
+    height: 100vh;
     margin: 0;
     font-family: "Roboto", sans-serif;
+    position: relative; /* Isso é importante para o botão se mover dentro da tela */
+    overflow: hidden;    /* Evita scrolls quando o botão "Não" estiver nas bordas */
 }
 
 .container {
