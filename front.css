@@ -1,17 +1,11 @@
-.btn-no {
-  transition: left 0.05s linear, top 0.05s linear;
-  position: absolute;
-}
-
 body {
-  overflow: hidden;
-  position: relative;
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  font-family: "Roboto", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* altura total da tela */
+    margin: 0;
+    font-family: "Roboto", sans-serif;
 }
-
 
 .container {
     text-align: center;
