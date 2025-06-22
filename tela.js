@@ -30,5 +30,5 @@ moveButton.addEventListener("mouseover", moverBotao);
 moveButton.addEventListener("click", moverBotao);
 
 correctlyButton.addEventListener("click", function () {
-  alert("Resposta correta! Vamo comer um Hamburgão");
+  window.location.href = "resposta.html";
 });
