@@ -57,8 +57,10 @@ function verificarDistancia() {
       newX = Math.max(minX, Math.min(newX, maxX));
       newY = Math.max(minY, Math.min(newY, maxY));
     }
-
+    
     moveButton.style.position = "absolute";
+    moveButton.style.width = `${btnRect.width}px`;
+    moveButton.style.height = `${btnRect.height}px`;
     moveButton.style.left = `${newX}px`;
     moveButton.style.top = `${newY}px`;
   }
