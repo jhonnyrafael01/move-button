@@ -8,10 +8,11 @@ let mouseY = 0;
 document.addEventListener("mousemove", (e) => {
   mouseX = e.clientX;
   mouseY = e.clientY;
+
+  verificarDistancia(); // Verifica distância toda vez que o mouse se move
 });
 
-// Loop de movimento contínuo
-function moverSuavemente() {
+function verificarDistancia() {
   const btnRect = moveButton.getBoundingClientRect();
   const btnCenterX = btnRect.left + btnRect.width / 2;
   const btnCenterY = btnRect.top + btnRect.height / 2;
@@ -20,13 +21,13 @@ function moverSuavemente() {
   const dy = btnCenterY - mouseY;
   const distance = Math.sqrt(dx * dx + dy * dy);
 
-  const threshold = 150; // distância mínima para ativar fuga
+  const threshold = 150;
   if (distance < threshold) {
     const angle = Math.atan2(dy, dx);
-    const moveSpeed = (threshold - distance) * 0.1;
 
-    let newX = btnRect.left + Math.cos(angle) * moveSpeed;
-    let newY = btnRect.top + Math.sin(angle) * moveSpeed;
+    const moveDistance = 200; // Distância fixa para "teleportar"
+    let newX = btnRect.left + Math.cos(angle) * moveDistance;
+    let newY = btnRect.top + Math.sin(angle) * moveDistance;
 
     // Limites da tela
     const maxX = window.innerWidth - btnRect.width;
@@ -39,11 +40,7 @@ function moverSuavemente() {
     moveButton.style.left = `${newX}px`;
     moveButton.style.top = `${newY}px`;
   }
-
-  requestAnimationFrame(moverSuavemente);
 }
-
-requestAnimationFrame(moverSuavemente);
 
 correctlyButton.addEventListener("click", function () {
   alert("Resposta correta! Vamo comer um Hamburgão");
